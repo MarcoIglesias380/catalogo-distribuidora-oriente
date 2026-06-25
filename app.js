@@ -206,6 +206,15 @@ async function loadProducts() {
   productGrid.hidden = false;
   emptyState.hidden = true;
 
+  if (
+    window.location.protocol === "file:" &&
+    Array.isArray(window.PRODUCTOS)
+  ) {
+    products = window.PRODUCTOS;
+    renderProducts();
+    return;
+  }
+
   try {
     const response = await fetch("./productos.json", { cache: "no-store" });
 
@@ -224,6 +233,16 @@ async function loadProducts() {
     products = data;
     renderProducts();
   } catch (error) {
+    if (Array.isArray(window.PRODUCTOS)) {
+      products = window.PRODUCTOS;
+      renderProducts();
+      console.warn(
+        "No se pudo cargar productos.json; se utilizó el respaldo local.",
+        error,
+      );
+      return;
+    }
+
     products = [];
     resultCount.textContent = "Catálogo no disponible";
     productGrid.innerHTML = `

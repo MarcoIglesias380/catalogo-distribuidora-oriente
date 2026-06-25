@@ -29,6 +29,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="productos.js"></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -153,17 +154,87 @@
     </main>
 
     <footer class="site-footer">
-      <div>
-      <img
-       src="./assets/logo.svg"
-       alt="Distribuidora Oriente logo"
-       width="100"
-       style="background: white; border-radius: 50%; padding: 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);"
-       loading="lazy"
-      />  
-        <p><strong>DISTRIBUIDORA ORIENTE</strong><br />Soluciones que mantienen tu trabajo en movimiento.</p>
+      <div class="footer-shell">
+        <div class="footer-columns">
+          <section class="footer-brand" aria-labelledby="footer-brand-title">
+            <img
+              src="./assets/logo.svg"
+              alt="Logo de Distribuidora Oriente"
+              width="200"
+              height="200"
+              loading="lazy"
+            />
+            <div>
+              <h2 id="footer-brand-title">DISTRIBUIDORA ORIENTE</h2>
+              <p>Soluciones que mantienen tu trabajo en movimiento.</p>
+            </div>
+          </section>
+
+          <section class="footer-section" aria-labelledby="footer-contact-title">
+            <h2 id="footer-contact-title">Contacto</h2>
+            <address class="footer-contact-list">
+              <p>
+                <span>Dirección</span>
+                Artemio Mansilla 1130, Bombero Kemp, Puerto Montt
+              </p>
+              <p>
+                <span>Correo</span>
+                <a href="mailto:ferreteriaoriente@hotmail.com">
+                  ferreteriaoriente@hotmail.com
+                </a>
+              </p>
+              <p>
+                <span>Teléfono</span>
+                <a href="tel:+56966377342">+56 9 6637 7342</a>
+              </p>
+              <p>
+                <span>Instagram</span>
+                <a
+                  href="https://instagram.com/ferreteria_oriente_pm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @ferreteria_oriente_pm
+                </a>
+              </p>
+            </address>
+          </section>
+
+          <section class="footer-section" aria-labelledby="footer-hours-title">
+            <h2 id="footer-hours-title">Horario de atención</h2>
+            <dl class="footer-hours">
+              <div><dt>Lunes</dt><dd>8:30 a.m. – 6:00 p.m.</dd></div>
+              <div><dt>Martes</dt><dd>8:30 a.m. – 6:00 p.m.</dd></div>
+              <div><dt>Miércoles</dt><dd>8:30 a.m. – 6:00 p.m.</dd></div>
+              <div><dt>Jueves</dt><dd>8:30 a.m. – 6:00 p.m.</dd></div>
+              <div><dt>Viernes</dt><dd>8:30 a.m. – 6:00 p.m.</dd></div>
+              <div><dt>Sábado</dt><dd>9:00 a.m. – 1:30 p.m.</dd></div>
+              <div class="is-closed"><dt>Domingo</dt><dd>Cerrado</dd></div>
+            </dl>
+          </section>
+        </div>
+
+        <section class="footer-location" aria-labelledby="footer-location-title">
+          <div class="footer-location-copy">
+            <span>Visítanos</span>
+            <h2 id="footer-location-title">Encuéntranos en Puerto Montt</h2>
+            <p>Artemio Mansilla 1130, Bombero Kemp</p>
+          </div>
+          <div class="footer-map">
+            <iframe
+              title="Mapa de Distribuidora Oriente en Puerto Montt"
+              src="https://www.google.com/maps?q=Artemio%20Mansilla%201130%2C%20Puerto%20Montt%2C%20Chile&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
       </div>
-      <p>Creado por Marco Iglesias by SurInnovacion · Todos los derechos reservados</p>
+
+      <div class="footer-legal">
+        <p>Creado por Marco Iglesias by SurInnovacion · Todos los derechos reservados</p>
+      </div>
     </footer>
 
     <div class="modal-backdrop" id="product-modal" hidden>
