@@ -202,26 +202,42 @@ function closeModal() {
 }
 
 async function loadProducts() {
-  if (Array.isArray(window.PRODUCTOS)) {
-    products = window.PRODUCTOS;
-    renderProducts();
-    return;
-  }
+  resultCount.textContent = "Cargando productos…";
+  productGrid.hidden = false;
+  emptyState.hidden = true;
 
   try {
-    const response = await fetch("productos.json");
-    if (!response.ok) throw new Error("No se pudo cargar el catálogo.");
-    products = await response.json();
+    const response = await fetch("./productos.json", { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error(
+        `No se pudo cargar productos.json (HTTP ${response.status}).`,
+      );
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new TypeError("productos.json debe contener una lista de productos.");
+    }
+
+    products = data;
     renderProducts();
   } catch (error) {
+    products = [];
     resultCount.textContent = "Catálogo no disponible";
     productGrid.innerHTML = `
       <div class="empty-state" style="display:block;grid-column:1/-1">
         <h3>No pudimos cargar los productos</h3>
-        <p>Abre el proyecto mediante un servidor local para permitir la lectura de productos.json.</p>
+        <p>${
+          window.location.protocol === "file:"
+            ? "Chrome no permite cargar productos.json desde file://. Abre el proyecto mediante un servidor local."
+            : "Revisa tu conexión e intenta cargar el catálogo nuevamente."
+        }</p>
+        <button type="button" data-retry-products>Reintentar</button>
       </div>
     `;
-    console.error(error);
+    console.error("Error al cargar el catálogo:", error);
   }
 }
 
@@ -236,6 +252,12 @@ filterButtons.forEach((button) => {
 });
 
 productGrid.addEventListener("click", (event) => {
+  const retryButton = event.target.closest("[data-retry-products]");
+  if (retryButton) {
+    loadProducts();
+    return;
+  }
+
   const button = event.target.closest("[data-product-id]");
   if (!button) return;
   const product = products.find(({ id }) => id === Number(button.dataset.productId));
