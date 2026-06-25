@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 330">
+  <defs>
+    <linearGradient id="steel" x1="0" x2="1">
+      <stop offset="0" stop-color="#42423f"/><stop offset=".5" stop-color="#d9d9d1"/><stop offset="1" stop-color="#555550"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="250" cy="280" rx="140" ry="15" fill="#171716" opacity=".12"/>
+  <g transform="rotate(-24 250 165)">
+    <path d="M183 47h91l50 39-18 25-56-22-67 12-23-25z" fill="url(#steel)" stroke="#171716" stroke-width="7"/>
+    <path d="M184 85h75l-6 52h-54z" fill="#f2b705" stroke="#171716" stroke-width="7"/>
+    <path d="M206 132h42l20 135h-80z" fill="#242422" stroke="#171716" stroke-width="7"/>
+    <path d="M200 164h56M195 199h66M191 235h73" stroke="#f2b705" stroke-width="8"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 330">
+  <defs>
+    <linearGradient id="zinc" x1="0" x2="1">
+      <stop offset="0" stop-color="#4d4d49"/><stop offset=".45" stop-color="#e1e1d9"/><stop offset=".7" stop-color="#85857f"/><stop offset="1" stop-color="#292927"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="250" cy="277" rx="130" ry="16" fill="#171716" opacity=".12"/>
+  <g transform="rotate(-20 250 165)">
+    <path d="M205 58h90l17 38-17 31h-90l-17-31z" fill="url(#zinc)" stroke="#171716" stroke-width="7"/>
+    <path d="M214 92h72M250 65v56" stroke="#4b4b47" stroke-width="8"/>
+    <rect x="226" y="124" width="48" height="125" fill="url(#zinc)" stroke="#171716" stroke-width="6"/>
+    <path d="M220 143h60M220 161h60M220 179h60M220 197h60M220 215h60M220 233h60" stroke="#51514d" stroke-width="7"/>
+    <path d="m226 249 24 37 24-37z" fill="#3e3e3b" stroke="#171716" stroke-width="6"/>
+  </g>
+</svg>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Catálogo de productos de Distribuidora Oriente: portones, fijaciones, herramientas y accesorios."
+    />
+    <meta name="theme-color" content="#171716" />
+    <title>Catálogo | Distribuidora Oriente</title>
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("do-theme");
+          const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+          document.documentElement.dataset.theme = savedTheme || preferredTheme;
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="productos.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#inicio" aria-label="Distribuidora Oriente, volver al inicio">
+          <img
+            class="brand-logo"
+            src="assets/logo.svg"
+            alt="Logo Distribuidora Oriente"
+            width="200"
+            height="200"
+            decoding="async"
+          />
+          <span class="brand-copy">
+            <strong>DISTRIBUIDORA ORIENTE</strong>
+            <small>Soluciones en ferretería para profesionales</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Activar modo oscuro"
+            aria-pressed="false"
+            title="Cambiar tema"
+          >
+            <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
+            </svg>
+            <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M20 15.2A8.4 8.4 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z" />
+            </svg>
+          </button>
+          <a class="header-catalog-link" href="#catalogo" aria-label="Ir al catálogo">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 6h16M4 12h16M4 18h10" />
+            </svg>
+            <span>Catálogo</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="eyebrow"><i></i> Catálogo profesional · 2026</span>
+            <h1>Catálogo de<br /><span>Productos</span></h1>
+            <p>Herramientas y soluciones con información clara y precios actualizados.</p>
+            <a class="primary-button" href="#catalogo">
+              Ver catálogo
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m7 10 5 5 5-5" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <img
+              class="hero-brand-mark"
+              src="assets/Logo.svg"
+              alt=""
+              width="500"
+              height="500"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <div class="measure-line" aria-hidden="true">
+          <span></span><i></i><i></i><i></i><i></i><i></i><span></span>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="catalogo">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">SELECCIÓN ORIENTE</span>
+            <h2>Encuentra lo que necesitas</h2>
+          </div>
+          <p id="result-count" aria-live="polite">Cargando productos…</p>
+        </div>
+
+        <div class="catalog-controls">
+          <label class="search-control" for="product-search">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m16.5 16.5 4 4" />
+            </svg>
+            <input
+              id="product-search"
+              type="search"
+              placeholder="Buscar por nombre o código"
+              autocomplete="off"
+            />
+            <kbd>⌘ K</kbd>
+          </label>
+
+          <div class="category-filters" aria-label="Filtrar por categoría">
+            <button class="filter-button is-active" type="button" data-category="Todos">
+              Todos
+            </button>
+            <button class="filter-button" type="button" data-category="Portones">Portones</button>
+            <button class="filter-button" type="button" data-category="Fijaciones">Fijaciones</button>
+            <button class="filter-button" type="button" data-category="Herramientas">Herramientas</button>
+            <button class="filter-button" type="button" data-category="Accesorios">Accesorios</button>
+          </div>
+        </div>
+
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <span>0</span>
+          <h3>No encontramos coincidencias</h3>
+          <p>Prueba con otro nombre, código o categoría.</p>
+          <button type="button" id="clear-filters">Limpiar filtros</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <img src="assets/Logo.svg" alt="" width="500" height="500" loading="lazy" />
+        <p><strong>DISTRIBUIDORA ORIENTE</strong><br />Soluciones que mantienen tu trabajo en movimiento.</p>
+      </div>
+      <p>Creado por Marco Iglesias by SurInnovacion · Todos los derechos reservados</p>
+    </footer>
+
+    <div class="modal-backdrop" id="product-modal" hidden>
+      <article
+        class="product-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div class="modal-handle" aria-hidden="true"></div>
+        <button class="modal-close" type="button" aria-label="Cerrar detalle">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M6 6 18 18M18 6 6 18" />
+          </svg>
+        </button>
+        <div id="modal-content"></div>
+      </article>
+    </div>
+  </body>
+</html>
