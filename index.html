@@ -66,12 +66,20 @@
               <path d="M20 15.2A8.4 8.4 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z" />
             </svg>
           </button>
-          <a class="header-catalog-link" href="#catalogo" aria-label="Ir al catálogo">
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M4 6h16M4 12h16M4 18h10" />
-            </svg>
-            <span>Catálogo</span>
-          </a>
+          <nav class="header-nav" aria-label="Navegación principal">
+            <a class="header-nav-link" href="#catalogo" aria-label="Ir al catálogo">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h10" />
+              </svg>
+              <span>Catálogo</span>
+            </a>
+            <a class="header-nav-link" href="#contacto" aria-label="Ir a contacto">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M4 5h16v14H4zM4 7l8 6 8-6" />
+              </svg>
+              <span>Contacto</span>
+            </a>
+          </nav>
         </div>
       </div>
     </header>
@@ -83,12 +91,20 @@
             <span class="eyebrow"><i></i> Catálogo profesional · 2026</span>
             <h1>Catálogo de<br /><span>Productos</span></h1>
             <p>Herramientas y soluciones con información clara y precios actualizados.</p>
-            <a class="primary-button" href="#catalogo">
-              Ver catálogo
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="m7 10 5 5 5-5" />
-              </svg>
-            </a>
+            <div class="hero-actions">
+              <a class="primary-button" href="#catalogo">
+                Ver catálogo
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="m7 10 5 5 5-5" />
+                </svg>
+              </a>
+              <a class="primary-button" href="#contacto">
+                Contáctanos
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M4 5h16v14H4zM4 7l8 6 8-6" />
+                </svg>
+              </a>
+            </div>
           </div>
 
           <div class="hero-visual" aria-hidden="true">
@@ -170,7 +186,11 @@
             </div>
           </section>
 
-          <section class="footer-section" aria-labelledby="footer-contact-title">
+          <section
+            class="footer-section"
+            id="contacto"
+            aria-labelledby="footer-contact-title"
+          >
             <h2 id="footer-contact-title">Contacto</h2>
             <address class="footer-contact-list">
               <p>
@@ -236,6 +256,12 @@
         <p>Creado por Marco Iglesias by SurInnovacion · Todos los derechos reservados</p>
       </div>
     </footer>
+
+    <button class="back-to-top" type="button" aria-label="Volver arriba" title="Volver arriba">
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="m6 14 6-6 6 6" />
+      </svg>
+    </button>
 
     <div class="modal-backdrop" id="product-modal" hidden>
       <article

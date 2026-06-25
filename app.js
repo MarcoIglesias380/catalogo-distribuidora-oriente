@@ -9,6 +9,7 @@ const modalContent = document.querySelector("#modal-content");
 const modalClose = document.querySelector(".modal-close");
 const themeToggle = document.querySelector(".theme-toggle");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+const backToTopButton = document.querySelector(".back-to-top");
 
 let products = [];
 let activeCategory = "Todos";
@@ -40,6 +41,16 @@ themeToggle.addEventListener("click", () => {
     document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   applyTheme(nextTheme);
 });
+
+function updateBackToTopVisibility() {
+  backToTopButton.classList.toggle("is-visible", window.scrollY > 520);
+}
+
+window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+updateBackToTopVisibility();
 
 const currency = new Intl.NumberFormat("es-CL", {
   style: "currency",
